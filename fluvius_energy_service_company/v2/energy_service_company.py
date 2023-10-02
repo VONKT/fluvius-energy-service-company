@@ -2,10 +2,10 @@ import http.client
 import json
 from typing import Any, Optional
 import urllib.parse
+
 from fluvius_energy_service_company.data_objects.FluviusElectricityMeter import FluviusElectricityMeter
 from fluvius_energy_service_company.data_objects.FluviusMeasurement import FluviusMeasurement
 from fluvius_energy_service_company.data_objects.FluviusQuarterHourlyEnergy import FluviusQuarterHourlyEnergy
-
 from fluvius_energy_service_company.data_objects.FluviusMandate import FluviusMandate, FluviusMandateDataResponse
 from fluvius_energy_service_company.data_objects.FluviusMandateEnergy import FluviusMandateEnergyDataResponse
 from fluvius_energy_service_company.fluvius_authentication import FluviusAuthentication

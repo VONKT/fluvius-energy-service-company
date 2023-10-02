@@ -2,9 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='fluvius_energy_service_company',
-    version='0.1',
+    version='0.0.1',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        "PyJWT==2.8.0",
+    ],
     author='Ward Schodts',
     author_email='ward@vonkt.energy',
     description='Wrapper for the Fluvius energy service company API that you can use as an "Energie dienstverlener".',
