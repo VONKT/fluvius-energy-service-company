@@ -1,6 +1,8 @@
 # fluvius-energy-service-company
 Wrapper for the Fluvius energy service company API that you can use as an "Energie dienstverlener".
 
+![Overview](Overview.png)
+
 ## Goal and purpose
 This packages wraps the apis that are available for `Energiedienstverleners`.
 `Energiedienstverleners` are companies that have a contract with the Flemish DSO Fluvius and allows them to retrieve energy data from their users.
