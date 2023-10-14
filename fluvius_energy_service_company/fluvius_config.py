@@ -27,9 +27,9 @@ class FluviusConfig:
         if (os.getenv('CERTIFICATE_KEY') is None and certificate_key is None) and (os.getenv('CERTIFICATE_KEY_PATH') is None and certificate_key_path is None):
             raise ValueError('No certificate key or key lccation is set, not able to initialize Fluvius API')
         self.subscription_key = subscription_key if subscription_key is not None else os.getenv('SUBSCRIPTION_KEY')
-        if not self._is_hexadecimal(certificate_thumb_print):
-            raise ValueError('Certificate thumb print is not a valid hexadecimal string')
         self.certificate_thumb_print = certificate_thumb_print if certificate_thumb_print is not None else os.getenv('CERTIFICATE_THUMB_PRINT')
+        if not self._is_hexadecimal(self.certificate_thumb_print):
+            raise ValueError('Certificate thumb print is not a valid hexadecimal string')
         self.live_scope = live_scope if live_scope is not None else os.getenv('LIVE_SCOPE')
         self.client_id = client_id if client_id is not None else os.getenv('CLIENT_ID')
         self.tenant_id = tenant_id if tenant_id is not None else os.getenv('TENANT_ID')
