@@ -4,10 +4,12 @@ import json
 import time
 import urllib.parse
 import uuid
+import logging
 
 import jwt
 
 from fluvius_energy_service_company.fluvius_config import FluviusConfig
+
 
 class FluviusAuthenticationToken():
     def __init__(self, token_type: str, expires_in: int, ext_expires_in: int, access_token: str):
@@ -15,6 +17,7 @@ class FluviusAuthenticationToken():
         self.expires_in = expires_in
         self.ext_expires_in = ext_expires_in
         self.access_token = access_token
+
 
 class FluviusAuthentication:
 
@@ -88,8 +91,8 @@ class FluviusAuthentication:
 
     def get_token(self):
         if self._token_is_valid():
-            print('Reuse current token')
+            logging.info('Reuse current token')
             return self.token
-        print('Creating new token')
+        logging.info('Creating new token')
         self.token = self._get_fluvius_token()
         return self.token

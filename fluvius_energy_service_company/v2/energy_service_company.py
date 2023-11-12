@@ -21,7 +21,10 @@ class EnergyServiceCompany:
             self.config = fluvius_config
         self.fluvius_authentication = FluviusAuthentication(self.config)
         self.apihub_conn = http.client.HTTPSConnection("apihub.fluvius.be")
-    
+
+    def _get_client_assertion(self) -> str:
+        return self.fluvius_authentication._get_signed_jwt()
+
     def get_health(self) -> Any:
         endpoint_name = "/esco-live/api/v2.0/health"
         try:
@@ -33,7 +36,7 @@ class EnergyServiceCompany:
         except Exception as ex:
             print(f"Calling ${endpoint_name} failed with ${ex}", ex)
             return
-        
+
     def create_short_url(self, reference_number, flow: str = 'B2C', number_of_eans: int = 1) -> Any:
         endpoint_name = "/esco-live/api/v2.0/shortUrlIdentifier"
         try:
@@ -100,7 +103,7 @@ class EnergyServiceCompany:
         except Exception as ex:
             print(f"Calling {endpoint_name} failed with {ex}", ex)
             return
-        
+
     @staticmethod
     def _decode_fluvius_mandate_energy(response: Any) -> FluviusMandateEnergyDataResponse:
         if not response['data'] or not response['data']['fetchTime'] or not response['data']['electricityMeters']:
