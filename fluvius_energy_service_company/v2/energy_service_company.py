@@ -32,7 +32,7 @@ class EnergyServiceCompany:
             self.apihub_conn.request("GET", endpoint_name, None, header)
             res = self.apihub_conn.getresponse()
             data = res.read()
-            return data.decode("utf-8")
+            return json.loads(data.decode("utf-8"))
         except Exception as ex:
             print(f"Calling ${endpoint_name} failed with ${ex}", ex)
             return
