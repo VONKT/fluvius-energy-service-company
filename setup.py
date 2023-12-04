@@ -2,10 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='fluvius_energy_service_company',
-    version='0.0.6',
+    version='0.0.7',
     packages=find_packages(),
     install_requires=[
         "PyJWT==2.8.0",
+        "cryptography",
     ],
     author='Ward Schodts',
     author_email='ward@vonkt.energy',
